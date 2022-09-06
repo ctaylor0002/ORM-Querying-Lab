@@ -1,3 +1,4 @@
+from itertools import count
 from django.shortcuts import render
 from django.db.models import Count
 from django.core.exceptions import ObjectDoesNotExist
@@ -208,6 +209,16 @@ SELECT `school_db_instructor`.`id`,
 
 # Get the count of students, courses, and instructors and print them in the terminal
 def problem_four(request):
+
+    count_of_students = Student.objects.count()
+    count_of_courses = Course.objects.count()
+    count_of_instructors = Instructor.objects.count()
+
+    print(
+        f'Students Count: {count_of_students}\n'
+        f'Courses Count: {count_of_courses}\n'
+        f'Instructors Count: {count_of_instructors}'
+    )
 
     return complete(request)
 
