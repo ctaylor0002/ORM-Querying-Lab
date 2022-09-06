@@ -153,6 +153,16 @@ SELECT `school_db_instructor`.`id`,
 # (Do not hard code his name in the print)
 def problem_three(request):
 
+    courses = Course.objects.filter(instructor_id=2)
+    instructor = Instructor.objects.get(id=2)
+    print(
+        f'Instructor Name: {instructor.first_name} {instructor.last_name}\n'
+        'Courses:'
+    )
+    for course in courses:
+        print(
+            f'\t- {course.name}'
+        )
     return complete(request)
 
 
